@@ -1,0 +1,555 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\begin{quote}
+Этот файлик для региона, в будущем сделаю его и для всероса, добавлю
+интерактивки, двойной запуск и открытые тесты. WL Лёха
+
+Общая информация
+
+Основные выводы из памятки участника регионального этапа:\\
+1.\hspace{0pt} у вас всего 50 попыток на одну задачу и 150 попыток
+суммарно по всем задачам;\\
+2.\hspace{0pt} берется лучшее решение (склейки нету, если первое решение
+заходит на одну подгруппу, а второе на другую, то заифайте и объедините
+решения);\\
+3.\hspace{0pt} из системы нельзя выгружать посылки, поэтому сохраняйте
+все решения (например, название файла - номер посылки в\\
+системе).
+
+Не заходит по PE (presentation error)
+
+PE на реге 21 веке. Что за кринж? Да, на регионе может быть PE, но это
+не значит, что если вы выведете в неправильном формате, то у вас будет
+PE, может и WA.
+
+В памятке участника как пример возникновения PE: ``Программа должна
+вывести числа в одной строке через пробел, а вывела их в разных строках
+или наоборот``. Современные чекеры не будут ругаться на такие случаи, но
+все же выводите ответ, как просит задача.
+
+Бывает два вида чекеров (проверяющих ответ участника программ):
+1.\hspace{0pt} Стандартный (проверяет, равен ли ответ участника ответу
+жюри). В таком случае PE можно получить только если выводить совсем не
+то, например строку вместо числа.
+
+2.\hspace{0pt} Кастомный (когда верных ответов несколько и нельзя просто
+сверять с ответом жюри). В таком случае PE совсем нельзя получить,
+всегда будете получать WA.
+
+В целом нужно воспринимать PE как WA, скорее всего оно не имеет смысла.
+
+Не заходит по WA (wrong answer)
+
+1)\hspace{0pt} Забыли убрать отладочный вывод.
+
+2)\hspace{0pt} Когда используете double, может вывести nan или inf
+(возможно выведет, как PE).
+\end{quote}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+3)\hspace{0pt}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Переполнение int.
+\end{quote}
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+4)\hspace{0pt}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Undefined behavior (поведение зависит от компилятора, бывает,
+\end{quote}
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+например, при выходе за границы стат. массива).
+
+5)\hspace{0pt} Неверная идея или баг в коде (ну тут мои полномочия всё).
+
+Не заходит по TL (time limit):
+
+На полигоне (g++ 14) одна секунда - это 2е9 ifов (потому что прагма O2
+автоматически включена на CF), 2e8 операций деления и 5е8 операций
+остатка. На моем компьютере (g++ 17) одна секунда - это 7e8 операций
+сложения, 3e8 операций деления, 5e8 ifов, 4e8 остатка. И появляется
+резонный вопрос, чему равна одна секунда в c++?
+
+Невозможно понять из-за константы операций, однако я думаю безопасно
+считать, что это примерно от 1e8 до 3e8 действий, вы сможете сделать
+больше если захотите.
+
+Однако создатели задач региона и всероса очень редко планируют, чтобы вы
+их запихивали (либо дают за это мало баллов). Поэтому:
+\end{quote}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Ограничения по n
+\end{quote}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Авторская\\
+асимптотика
+\end{quote}\strut
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Вы можете упихать (я в вас верю \textgreater-\textless{} )
+\end{quote}
+\end{minipage} \\
+\midrule()
+\endhead
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+до 10
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+O(n*n!)
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+O(n\^{}2*n!) или O(n\^{}8)
+\end{quote}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+до 15-18
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+O(3\^{}n)
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+O(3\^{}n)
+\end{quote}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+до 20
+\end{quote}
+\end{minipage} & O(2\^{}n) или O(2\^{}n*n) &
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+O(2\^{}n*n\^{}2)
+\end{quote}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+до 40-50()
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+O(2\^{}(n/2)) или O(2\^{}(n/2)*n)
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+То же самое, но с большой\\
+константой
+\end{quote}\strut
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+до 1000
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+O(n\^{}2) или O(n\^{}2 * log(n))
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+O(n\^{}2 * log\^{}2(n))
+\end{quote}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+до 1e5
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+O(n), O(n*log(n)), O(n*log\^{}2(n)) или O(n*sqrt(n))
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+O(С*n*log\^{}2(n)) или O(С*n*sqrt(n)), где С=10
+\end{quote}
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+до 3e5
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+То же самое, но без O(n*log\^{}2(n))
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+То же самое,\\
+только С меньше C=3
+\end{quote}\strut
+\end{minipage} \\
+\begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+до 1e6
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+O(n), O(n*log(n)),
+\end{quote}
+\end{minipage} & \begin{minipage}[t]{\linewidth}\raggedright
+\begin{quote}
+O(C*n*log(n)), C=5
+\end{quote}
+\end{minipage} \\
+\bottomrule()
+\end{longtable}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+1)\hspace{0pt}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Не забывайте, что у вас может появиться бесконечный цикл. Тут
+\end{quote}
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+ускорения не помогут :)
+\end{quote}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+2)\hspace{0pt}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+``Программа ждет ввода данных, хотя входной поток уже
+\end{quote}
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+закончился'' - памятка участника. Не думаю, что это у вас будет)
+3)\hspace{0pt} Ускорение потоков ввода и вывода. Решения были запущены
+на одном и том же коде, вводящем 1e5 чисел и выводящем их, с\\
+добавлением (ios\_base::sync\_with\_stdio(0), cin.tie(0) или
+cout.tie(0))
+
+\includegraphics[width=6.27083in,height=0.92639in]{vertopal_6ffb23f2a53944ef80ceab69493730fe/media/image1.png}
+
+Видно, что cout.tie(0) бесполезно. ВЫУЧИТЕ другие два ускорения, ведь
+они в 3 раза улучшают время, и не каждая среда может\\
+подсказать.
+
+4)\hspace{0pt} Правильно расставляйте типы переменных, т. к. int
+занимает меньше времени на создание.
+
+\includegraphics[width=6.27083in,height=1.41667in]{vertopal_6ffb23f2a53944ef80ceab69493730fe/media/image2.png}
+
+5)\hspace{0pt} Сделать статические массивы вместо векторов. При этом в
+местах, где vector всё же используется как стек, перед использованием
+сделать v.reserve(MAXN).
+
+6)\hspace{0pt} Заменить map и set на unordered\_map и unordered\_set. Не
+забудьте сделать mp.reserve(MAXN), иначе будет долго работать!
+
+Бывают ситуации, когда нужно ключом unordered\_map сделать структуру.
+Для этого нужно структуру захешировать и записывать в unordered\_map
+хэш.
+
+7)\hspace{0pt} Прагмы.
+
+Стандартный набор, который я использую во всех решениях:
+
+\#pragma GCC optimize("O3,unroll-loops")
+
+// \#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
+
+Заметим, что вторая строка закомментирована. Если не заходит без неё,
+можно попробовать её раскомментировать и заслать. Но по умолчанию
+отправляйте без неё.
+
+Почитать, за что каждая из них отвечает:\\
+.
+
+Пытаться загнать прагмы только тогда, когда вам нечего больше делать!
+\end{quote}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+8)\hspace{0pt}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+По возможности избавляться от любых делений и остатков по
+\end{quote}
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+модулю. Например, взятие остатка по модулю, когда пишешь хэш, работает
+дольше, чем if сумма больше модуля.
+
+\includegraphics[width=5.5in,height=1.70833in]{vertopal_6ffb23f2a53944ef80ceab69493730fe/media/image3.png}
+
+9)\hspace{0pt} Путем проб и ошибок стало понятно, что переписывать
+решение в тернарные операторы для ускорения по времени бессмысленно.
+10)\hspace{0pt} Переход по столбцам а потом по строкам в массиве (j, i)
+работает дольше, чем по строкам, а потом по столбцам (i, j, стандартный
+обход), из-за прыжков по памяти длиной n, вместо 1.
+
+Не заходит по ML (memory limit):
+
+256 мб - это примерно 6e7 int и в 2 раза меньше long long и double.
+1)\hspace{0pt} Правильно расставляйте типы переменных, int занимает в 2
+раза меньше бит, чем long long.
+
+2)\hspace{0pt} Большая рекурсия, возможно стоит попытаться заменить на
+циклы или передавать меньше параметров.
+
+``Ошибки при работе с указателями в C/C++ также могут 3)\hspace{0pt}\\
+диагностироваться, как ML'' - памятка участника (Устарело, бывает в
+старых плюсах).
+
+4)\hspace{0pt} Unordered\_map, unordered\_set стоит заменить на map,
+set.
+
+5)\hspace{0pt} Добавить к vector, unordered\_map или unordered\_set
+после момента их создания .reserve(MAXN).
+
+Не заходит по RE (Runtime error):
+
+RE может быть не видно на вашем компьютере, это называется UB (Undefined
+Behavior).
+\end{quote}
+
+\#define \_GLIBCXX\_DEBUG --- отлавливает все RE в STL-структурах.
+
+\begin{quote}
+Если получили RE на 1 тесте, а локально всё правильно, надо написать это
+в начало кода (до includов). Также стоить заметить, что эта дебаг может
+делать TL, поэтому используйте его только локально (\#ifdef LOCAL).
+\end{quote}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule()
+\begin{minipage}[b]{\linewidth}\raggedright
+1)\hspace{0pt}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\begin{quote}
+Превышение лимита по памяти также может диагностироваться,
+\end{quote}
+\end{minipage} \\
+\midrule()
+\endhead
+\bottomrule()
+\end{longtable}
+
+\begin{quote}
+как "Ошибка выполнения" - памятка участника. (Устарело, возможно только
+на informatics.)\\
+2)\hspace{0pt} Выход за пределы массива.
+
+3)\hspace{0pt} Деление на 0 (причем в double и long double не возникает
+RE, компилятор выведет inf).
+
+Разыменовывание указателя на end в векторах и сетах. 4)\hspace{0pt}\\
+5)\hspace{0pt} Забыли убрать assert, с помощью него можно удобно
+дебагать и ifать тест.
+\end{quote}
+
+Немного мудрости от ваших любимых тренеров
+
+\begin{quote}
+Москвы:
+
+1)\hspace{0pt} Набирайте частички, не в OKах счастье:)\\
+2)\hspace{0pt} Не тратьте много времени на одной задаче, придумайте для
+себя стратегию, которая не зависит от сложности задач или аномальных
+задач (С2 на рюкзак 2025 года). Например:\\
+1.\hspace{0pt} Я (Лёха) решал в порядке DABC на то кол-во баллов, что
+мог, тратил не больше 20 минут на дебаг или размышления о задаче (чтение
+задачи и написание кода сюда не входит). Если\\
+понимал, что 20 минут прошли, то я переходил к следующей задаче по
+циклу. А в последний час оценивал ситуацию и решал, что мне лучше
+делать, чтобы набрать как можно больше баллов.
+
+2.\hspace{0pt} Можно сначала решить D и C на халявные подгруппы, а потом
+уже решать A и B на большие баллы. Так не надо будет\\
+беспокоиться о том, что остался 0 по D.
+
+3)\hspace{0pt} Хороший рандом (ставьте случайный константный сид,
+пробуйте разные):
+
+mt19937 \textbf{rng}(73);\hspace{0pt}\\
+\hspace{0pt}\\
+uniform\_int\_distribution\textless int\textgreater{} uid(0,
+int(1e9));\hspace{0pt}\\
+int\textbf{rnd}(int n) \{\hspace{0pt} \hspace{0pt} //
+случайноецелоечислоот 0 до n - 1 включительно\hspace{0pt} return
+uid(rng) \% n; // еслиберетевсегдапоодномуитомужемодулю, лучше uid
+создатьотэтогомодуля, темсамымнебратьостаток\hspace{0pt}\\
+\}\hspace{0pt}\\
+\hspace{0pt}\\
+ld \textbf{rndd}() \{\hspace{0pt} // случайноевещественноечислоот 0 до
+1\hspace{0pt}\\
+return ld(rand()) / RAND\_MAX;\hspace{0pt}\\
+\}\hspace{0pt}\\
+\hspace{0pt}\\
+vector \textless int\textgreater{} v;\hspace{0pt}
+
+shuffle(v.begin(), v.end(), rng); // перемешатьвсечисла
+
+4)\hspace{0pt} Сводите задачи к более мелким и решайте их по
+отдельности.
+
+5)\hspace{0pt} Если вы пишете ДО, геому или любой другой алгоритм,\\
+создавайте удобную структуру или шаблон, который вы умеете по памяти
+безошибочно писать, чтобы не тратить много время на дебаг уже известного
+алгоритма.
+
+Сppreference поможет, если забыли, как что-то работает. 6)\hspace{0pt}\\
+Попробуйте им пользоваться дома и на пробном туре.
+
+Если идеи не приходят (и сидите впустую, не
+
+знаете, что делать):
+
+1)\hspace{0pt} Если в условии дан граф, иногда бывает полезно запускать
+DFS от случайной вершины и сделать shuffle списков смежности. Это иногда
+позволяет немного уменьшить время работы (т.к. жюри чаще всего делает
+тесты под запуск от корня 1).
+
+То же самое можно сказать про любую задачу, где структуру входных данных
+можно сделать более случайной.
+
+Бывает полезно взять очень много жадников и рандомных 2)\hspace{0pt}\\
+решений и вывести наилучший из ответов, которые они получили.
+
+3)\hspace{0pt} Можно группы с маленьким n ифать и запускать на них
+переборное решение, а на больших группах запускать идею из 5 пункта.
+
+ОЧЕНЬ ВАЖНО, покакать перед туром, чтобы не обосраться на нем. У тебя
+всё получится, мы верим в тебя. (°◡°♡)
+
+Спасибо Антону Ныйкину, Антону Барисову, Марку Семенову, Тимуру Лузгову
+и всем прочитавшим файлик за помощь в его создании.
+\end{quote}
+
+\end{document}
