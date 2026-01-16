@@ -7,6 +7,10 @@ on:
       - 'main.pdf'
   workflow_dispatch:
 
+# ВАЖНО: дать токену право пушить в репозиторий
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,7 +25,8 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
-          latexmk_args: -pdf -interaction=nonstopmode
+          # latexmk_args больше не поддерживается — используем args
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
 
       - name: Upload PDF as artifact
         uses: actions/upload-artifact@v4
