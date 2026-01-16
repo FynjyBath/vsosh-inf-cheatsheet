@@ -23,6 +23,7 @@ jobs:
         run: |
           pdflatex -interaction=nonstopmode main.tex
           pdflatex -interaction=nonstopmode main.tex
+          pdflatex -interaction=nonstopmode main.tex
 
       - name: Commit PDF
         run: |
