@@ -3,6 +3,8 @@ name: Build LaTeX PDF
 on:
   push:
     branches: [ "main" ]
+    paths-ignore:
+      - 'main.pdf'
 
 jobs:
   build:
