@@ -1,30 +1,35 @@
 name: Build LaTeX PDF
 
+# Запускать workflow при push в main или вручную
 on:
   push:
-    branches: [ "main" ]
-    paths-ignore:
-      - 'main.pdf'
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Клонируем репозиторий
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install LaTeX
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive-full
-
+      # 2. Компиляция LaTeX
       - name: Compile LaTeX
-        run: |
-          pdflatex -interaction=nonstopmode main.tex
-          pdflatex -interaction=nonstopmode main.tex
-          pdflatex -interaction=nonstopmode main.tex
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: main.tex       # главный .tex файл
+          latexmk_args: -pdf -interaction=nonstopmode
 
+      # 3. Сохраняем PDF как артефакт (опционально)
+      - name: Upload PDF
+        uses: actions/upload-artifact@v3
+        with:
+          name: main-pdf
+          path: main.pdf
+
+      # 4. Автокоммит PDF обратно в репозиторий (опционально)
       - name: Commit PDF
         run: |
           git config user.name "github-actions[bot]"
