@@ -1,4 +1,4 @@
-name: Build LaTeX PDF
+name: Build LaTeX PDF REGION
 
 on:
   push:
@@ -6,6 +6,8 @@ on:
     paths-ignore:
       - 'region.pdf'
       - 'zakl.pdf'
+      - 'README.md'
+      - 'zakl.tex'
   workflow_dispatch:
 
 # ВАЖНО: дать токену право пушить в репозиторий
